@@ -1,0 +1,11 @@
+node_modules/**
+dist/**
+docs/**
+LICENSE
+.editorconfig
+.eslintignore
+.gitattributes
+.gitignore
+.npmignore
+.prettierignore
+package-lock.json

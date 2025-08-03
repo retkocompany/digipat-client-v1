@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<!-- Mirrored from demo.interface.club/limitless/layout_2/RTL/default/datatable_basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Sep 2017 13:53:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>پنل مدیریت</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <!-- Core JS files -->
+    <script type="text/javascript" src="assets/assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="assets/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="assets/assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="assets/assets/js/plugins/forms/selects/select2.min.js"></script>
+
+    <script type="text/javascript" src="assets/assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/assets/js/pages/datatables_basic.js"></script>
+
+
+    <!-- /theme JS files -->
+    <script>if (window.module) module = window.module;</script>
+</head>
+
+<body>
+
+<!-- Main navbar -->
+<div class="navbar navbar-default header-highlight">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">لوگو اینجاست</a>
+
+        <ul class="nav navbar-nav visible-xs-block">
+            <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+            <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="navbar-collapse collapse" id="navbar-mobile">
+        <ul class="nav navbar-nav">
+            <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+
+        </ul>
+
+
+        <div class="navbar-right">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-bubbles4"></i>
+                        <span class="visible-xs-inline-block position-right">Messages</span>
+                        <span class="badge bg-warning-400">2</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-content width-350">
+                        <div class="dropdown-content-heading">
+                            Messages
+                            <ul class="icons-list">
+                                <li><a href="#"><i class="icon-compose"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <ul class="media-list dropdown-content-body">
+                            <li class="media">
+                                <div class="media-left">
+                                    <img src="assets/images/demo/users/face10.jpg" class="img-circle img-sm" alt="">
+                                    <span class="badge bg-danger-400 media-badge">5</span>
+                                </div>
+
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">James Alexander</span>
+                                        <span class="media-annotation pull-right">04:58</span>
+                                    </a>
+
+                                    <span class="text-muted">who knows, maybe that would be the best thing for me...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left">
+                                    <img src="assets/images/demo/users/face3.jpg" class="img-circle img-sm" alt="">
+                                    <span class="badge bg-danger-400 media-badge">4</span>
+                                </div>
+
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">Margo Baker</span>
+                                        <span class="media-annotation pull-right">12:16</span>
+                                    </a>
+
+                                    <span class="text-muted">That was something he was unable to do because...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/demo/users/face24.jpg" class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">Jeremy Victorino</span>
+                                        <span class="media-annotation pull-right">22:48</span>
+                                    </a>
+
+                                    <span class="text-muted">But that would be extremely strained and suspicious...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/demo/users/face4.jpg" class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">Beatrix Diaz</span>
+                                        <span class="media-annotation pull-right">Tue</span>
+                                    </a>
+
+                                    <span class="text-muted">What a strenuous career it is that I've chosen...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/demo/users/face25.jpg" class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">Richard Vango</span>
+                                        <span class="media-annotation pull-right">Mon</span>
+                                    </a>
+
+                                    <span class="text-muted">Other travelling salesmen live a life of luxury...</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="dropdown-content-footer">
+                            <a href="#" data-popup="tooltip" title="All messages"><i class="icon-menu display-block"></i></a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="dropdown dropdown-user">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="assets/assets/images/th.jpg" alt="">
+                        <span class="user-name"></span>
+                        <i class="caret"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-profile"></i>تکمیل پروفایل</a></li>
+                        <li><a href="#"><i class="icon-sort-numberic-desc"></i>تغییر رمز عبور</a></li>
+                        <li><a href="#" class="logout"><i class="icon-switch2"></i> خروج از حساب کاربری</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /main navbar -->
+
+
+<!-- Page container -->
+<div class="page-container">
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main sidebar -->
+        <div class="sidebar sidebar-main">
+            <div class="sidebar-content">
+
+                <!-- User menu -->
+                <div class="sidebar-user">
+                    <div class="category-content">
+                        <div class="media">
+                            <a href="#" class="media-left"><img src="assets/assets/images/th.jpg" class="img-circle img-sm" alt=""></a>
+                            <div class="media-body">
+                                <span class="media-heading text-semibold user-name"></span>
+                                <div class="text-size-mini text-muted">
+                                    <i class="icon-pin text-size-small"></i> &nbsp;Tehran, TEH
+                                </div>
+                            </div>
+
+                            <div class="media-right media-middle">
+                                <ul class="icons-list">
+                                    <li>
+                                        <a href="#"><i class="icon-cog3"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /user menu -->
+
+
+                <!-- Main navigation -->
+                <div class="sidebar-category sidebar-category-visible">
+                    <div class="category-content no-padding">
+                        <ul class="navigation navigation-main navigation-accordion">
+                            <li>
+                                <a href="#"><i class="icon-grid7"></i> <span>میزکار</span></a>
+                                <ul>
+                                    <!--                                    <li><a href="labs.html">لیست آزمایشگاه ها</a></li>-->
+                                    <li class="active"><a href="files.html">لیست پرونده ها</a></li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon-inbox"></i> <span>پیام ها</span></a>
+                                <ul>
+                                    <li><a href="sendmessage.html">ارسال پیام</a></li>
+                                    <li><a href="inbox.html">صندوق دریافت</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon-help"></i> <span>راهنما</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon-user"></i> <span>درباره ما</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /main navigation -->
+
+            </div>
+        </div>
+        <!-- /main sidebar -->
+
+
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <!-- Page header -->
+
+            <!-- /page header -->
+
+
+            <!-- Content area -->
+            <div class="content">
+                <a href="addfile.html" type="button" class="btn btn-success"><i class="icon-plus2 position-left"></i> اضافه کردن پرونده</a>
+                <!-- Basic datatable -->
+                <div class="panel panel-flat panelwithadd">
+                    <input type="hidden" name="labId" value="" id="labId">
+                    <table class="table datatable-basic">
+                        <thead>
+                        <tr>
+                            <th class="text-center">نام بیمار</th>
+                            <th class="text-center">کد بیمار</th>
+                            <th class="text-center">نوع بیماری</th>
+                            <th class="text-center">پزشک معالج</th>
+<!--                            <th>رزیدنت مربوطه</th>-->
+                            <th class="text-center">وضعیت</th>
+                            <th class="text-center">اطلاعات بیمار</th>
+                            <th class="text-center">گزارش</th>
+                        </tr>
+                        </thead>
+                        <tbody id="docsInfo">
+                        <tr>
+                            <td>تارا بیرجندی</td>
+                            <td>78541</td>
+                            <td>سرطان سینه</td>
+                            <td>دکتر موحدی</td>
+<!--                            <td>طه احمدی</td>-->
+                            <td><span class="label label-success">بررسی شده</span></td>
+                            <td class="text-center">
+
+                                <a href="editfile.html" >
+                                   ویرایش
+                                </a>
+
+                            </td>
+                            <td class="text-center">
+
+                                <ul class="icons-list">
+                                    											<li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            مشاهده
+                                    </a>
+
+                                   <ul class="dropdown-menu dropdown-menu-right">
+                                                                 <li><a href="surgery-report.html"><i class="icon-graph"></i>اطلاعات بالینی</a></li>
+                                                                 <li><a href="drreport.html"><i class="icon-file-pdf"></i>گزارش پزشک</a></li>
+                                                                 <li><a href="wsimages.html"><i class="icon-images3"></i>مشاهده تصویر نمونه</a></li>
+                                         </ul>
+                                    				</li>
+                                    							</ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>سیما حسین زاده</td>
+                            <td>25689</td>
+                            <td>سرطان سینه</td>
+                            <td>دکتر موحدی</td>
+<!--                            <td>طه احمدی</td>-->
+                            <td><span class="label label-default">نامعلوم</span></td>
+                            <td class="text-center">
+
+                                <a href="editfile.html" >
+                                    ویرایش
+                                </a>
+
+                            </td>
+                            <td class="text-center">
+
+                                <ul class="icons-list">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            مشاهده
+                                        </a>
+
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="surgery-report.html"><i class="icon-graph"></i>اطلاعات بالینی</a></li>
+                                            <li><a href="drreport.html"><i class="icon-file-pdf"></i>گزارش پزشک</a></li>
+                                            <li><a href="wsimages.html"><i class="icon-images3"></i>مشاهده تصویر نمونه</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>حمیدرضا دانشور</td>
+                            <td>89652</td>
+                            <td>سرطان ریه</td>
+                            <td>دکتر صامت</td>
+<!--                            <td>طه احمدی</td>-->
+                            <td><span class="label label-warning">در حال بررسی</span></td>
+                            <td class="text-center">
+
+                                <a href="editfile.html">
+                                    ویرایش
+                                </a>
+
+                            </td>
+                            <td class="text-center">
+
+                                <ul class="icons-list">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            مشاهده
+                                        </a>
+
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="surgery-report.html"><i class="icon-graph"></i>اطلاعات بالینی</a></li>
+                                            <li><a href="drreport.html"><i class="icon-file-pdf"></i>گزارش پزشک</a></li>
+                                            <li><button class="show"><i class="icon-images3"></i>مشاهده تصویر نمونه</button></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /basic datatable -->
+
+
+
+                <!-- Footer -->
+                <div class="footer text-muted">
+                    powered by retko team @<a href="retko.ir">retko.ir</a>
+                </div>
+                <!-- /footer -->
+
+            </div>
+            <!-- /content area -->
+
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
+</div>
+<!-- /page container -->
+<script type="text/javascript">
+    let $ = require ('jquery')
+    const path = require('path')
+    const fs = require("fs")
+    const {ipcRenderer} = require('electron')
+    const db_path = path.join(__dirname, 'wsi.json')
+    const config = require('electron-json-config')
+
+    // config.set("server_url", "http://wsi.retko.ir/")
+
+    const url = config.get("server_url") + "api/v1/labs", url_user =  config.get("server_url") + "api/user", url2 = config.get("server_url") + "api/v1/labs/" + localStorage.labId + "/documents", url_logout = config.get("server_url") + "api/logout"
+
+    window.onload = function () {
+        // console.log(localStorage.user_name)
+        // console.log(config.get("user_name"))
+        // $('.user-name').text(localStorage.user_name)
+        let settings1 = {
+            "url": url_user,
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Accept": "application/json",
+                "Authorization": "Bearer " + localStorage.token
+            }
+        };
+        $.ajax(settings1).done(function (response1) {
+            // console.log(response1);
+            // let j1 = JSON.parse(response1)
+            localStorage.user_name = response1.name
+            $('.user-name').text(response1.name)
+            // console.log(response1.name)
+            // console.log(localStorage.user_name)
+            // config.set('user_name', response1.name)
+            // let j = JSON.parse(response)
+        });
+        let settings = {
+            "url": url2,
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Accept": "application/json",
+                "Authorization": "Bearer " + localStorage.token
+            }
+        };
+        $.ajax(settings).done(function (response) {
+            // console.log(response);
+            // let j = JSON.parse(response)
+            let j = response
+            let table = $("#docsInfo");
+            table.empty();
+            for (let i = 0; i < j.data.length; i++) {
+                table.append(buildRow(j.data[i], i));
+            }
+            $('.show').click(function() {
+                localStorage.docId = $(this).parent().parent().parent().parent().parent().parent().find(".docId").val()
+                localStorage.resId = $(this).parent().parent().parent().parent().parent().parent().find(".resId").val()
+                localStorage.doctId = $(this).parent().parent().parent().parent().parent().parent().find(".doctId").val()
+                // config.set("docId", localStorage.docId)
+                ipcRenderer.send('document')
+            })
+        });
+        function buildRow(doc, index) {
+            return "<tr class='doc'><input type='hidden' class='docId' id='docId" + index + "' value='" + doc.id + "'><input type='hidden' class='resId' id='resId" + index + "' value='" + doc.resident_id + "'><input type='hidden' class='doctId' id='doctId" + index + "' value='" + doc.doctor_id + "'>" + buildNameCol(doc.first_name, doc.last_name) + buildNIDCol(doc.national_id) + buildDiseaseTypeCol(doc.disease_type) + buildDoctorNameCol(doc.doctor.name) + buildStatusCol(doc.status) + buildPatientInfoCol() + buildReportsCol(doc.status) + "</tr>";
+        }
+        function buildNameCol(fName, lName) {
+            return "<td class='text-center'>" + fName + " " + lName + "</td>";
+        }
+        function buildNIDCol(nid) {
+            return "<td class='text-center'>" + nid + "</td>";
+        }
+        function buildDiseaseTypeCol(type) {
+            return "<td class='text-center'>" + type + "</td>";
+        }
+        function buildDoctorNameCol(doctor) {
+            return "<td class='text-center'>" + doctor + "</td>";
+        }
+        function buildStatusCol(status) {
+            return "<td class='text-center'>" + status + "</td>";
+        }
+        function buildPatientInfoCol() {
+            return "<td class='text-center'><a href='editfile.html'>ویرایش</a></td>";
+        }
+        function buildReportsCol() {
+            return "<td class='text-center'><ul class='icons-list'><li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>مشاهده</a><ul class='dropdown-menu dropdown-menu-right'><li><a href='surgery-report.html'><i class='icon-graph'></i>اطلاعات بالینی</a></li><li><a href='drreport.html'><i class='icon-file-pdf'></i>گزارش پزشک</a></li><li><a class='show' href='#'><i class='icon-images3'></i>مشاهده تصویر نمونه</a></li></ul></li></ul></td>";
+        }
+        $("#back").click(function () {
+            ipcRenderer.send('back');
+        });
+        $('.logout').click(function (){
+            settings = {
+                "url": url_logout,
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Accept": "application/json",
+                    "Authorization": "Bearer " + localStorage.token
+                }
+            };
+
+            $.ajax(settings).done(function (response1) {
+                // console.log(response1);
+                ipcRenderer.send('logout')
+            });
+        });
+    }
+</script>
+<!--<script src='./watcher.js'></script>-->
+</body>
+
+<!-- Mirrored from demo.interface.club/limitless/layout_2/RTL/default/datatable_basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Sep 2017 13:53:43 GMT -->
+</html>

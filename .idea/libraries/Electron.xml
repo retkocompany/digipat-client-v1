@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Electron" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="Node.js Core Modules" />
+      <sourceFilesUrls>
+        <item url="file://C:/Program Files/nodejs/node_modules/electron/electron.d.ts" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://C:/Program Files/nodejs/node_modules/electron/electron.d.ts" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

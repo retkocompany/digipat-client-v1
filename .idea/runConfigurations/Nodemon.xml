@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Nodemon" type="NodeJSConfigurationType" node-parameters="C:\nvm4w\nodejs\node_modules\nodemon\bin\nodemon.js --exec electron ." working-dir="$PROJECT_DIR$">
+    <method v="2" />
+  </configuration>
+</component>

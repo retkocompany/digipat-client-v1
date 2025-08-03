@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <title>Login V8</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="content/images/icons/favicon.ico"/>
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="content/vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="content/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="content/vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="content/vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="content/vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="content/vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="content/vendor/daterangepicker/daterangepicker.css">
+  <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="content/css/util.css">
+  <link rel="stylesheet" type="text/css" href="content/css/main.css">
+  <!--===============================================================================================-->
+  <script>
+    window.$ = window.jQuery = require("jquery");
+  </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					<span class="login100-form-title">
+						ورود به حساب کاربری
+					</span>
+
+        <div class="wrap-input100 validate-input m-b-16" data-validate="لطفا نام کاربری را وارد کنید">
+          <i class="fas fa-user"></i>
+          <label>
+            <input class="input100" type="text" id="txtUsr" name="username" placeholder=" نام کاربری خود را وارد کنید">
+          </label>
+
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate = "لطفا رمز عبور را وارد کنید">
+          <i class="fas fa-lock"></i>
+          <label>
+            <input class="input100" type="password" id="txtPwd" name="pass" placeholder="رمز عبور خود را وارد کنید">
+          </label>
+          <span class="focus-input100"></span>
+        </div>
+        <div class="text-left p-t-13 p-b-23">
+          <a href="#" class="txt2">
+            رمز عبور را فراموش کردم
+          </a>
+        </div>
+
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" id="btn-login">
+            ورود
+          </button>
+        </div>
+        <br>
+        <div class="text-center p-t-13 p-b-23">
+          <a href="#" class="txt2">
+            هنوز ثبت نام نکردم
+          </a>
+        </div>
+        <!--          <div class="container-login100-form-btn">-->
+        <!--            <button class="login100-form-btn" id="login-exit">-->
+        <!--              خروج-->
+        <!--            </button>-->
+        <!--          </div>-->
+
+
+        <div class="text-center p-t-13 p-b-23 contact">
+          <t3>با ما در ارتباط باشید</t3>
+          <img src="images/icon/gmail.png" alt="">
+          <img src="images/icon/whatsapp.png" alt="">
+          <img src="images/icon/instagram.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--===============================================================================================-->
+<!--  <script src="content/vendor/jquery/jquery-3.2.1.min.js"></script>-->
+<!--===============================================================================================-->
+<script src="content/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="content/vendor/bootstrap/js/popper.js"></script>
+<script src="content/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="content/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="content/vendor/daterangepicker/moment.min.js"></script>
+<script src="content/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="content/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="content/js/main.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+<script type="text/javascript">
+  // let $ = require ('jquery')
+  // import * as webStorage from "openseadragon-annotations";
+  // const { remote } = require('electron');
+  // const app = remote.app;
+  const path = require('path')
+  const fs = require("fs")
+  const crypto = require('crypto')
+  const {ipcRenderer} = require('electron')
+
+  const db_path = path.join(__dirname, 'wsi.json')
+  // const algorithm = 'aes-256-ctr'
+  // const secretKey = 'vOVH6sdmpNWjRRIqCc7rdxs01lwHzfr3'
+  // const iv = crypto.randomBytes(16)
+  const config = require('electron-json-config')
+
+  config.set("server_url", "https://s-demo.digipat.ir/")
+  let cameraId = ''
+  // config.set("server_url", "https://digipat.retko.ir/")
+  // config.set("server_url", "https://rayancad.retko.ir/")
+  // config.set("server_url", "https://irvps.retko.ir/")
+  // config.set("server_url", "http://localhost:8000/")
+  // console.log(config.file())
+
+  window.onload = function () {
+
+    ipcRenderer.send('logout');
+    // ipcRenderer.send('checkCam');
+    ipcRenderer.on('camera', (event, data) => {
+      console.log(data)
+      cameraId = data;
+    });
+    // let token
+    let url_CheckCam
+    const url_loggedIn = config.get("server_url") + "api/logged-in", url_user =  config.get("server_url") + "api/user", url_login = config.get("server_url") + "api/login", url_getToken = config.get("server_url") + "api/lab-token"
+    // try {
+    //   if (fs.existsSync(db_path)) {
+    //     fs.readFile(db_path, 'utf-8', (err, data) => {
+    //       if (err) {
+    //         throw err
+    //       }
+    //
+    //       if(data.length > 0) {
+    //         // parse JSON object
+    //         const login = JSON.parse(data.toString())
+    //
+    //         token = decrypt(login.token)
+    //         const settings = {
+    //           "url": url_loggedIn,
+    //           "method": "GET",
+    //           "timeout": 0,
+    //           "headers": {
+    //             "Authorization": "Bearer " + token
+    //           },
+    //         };
+    //
+    //         $.ajax(settings).done(function (response) {
+    //           // console.log(response)
+    //           let j = JSON.parse(response)
+    //           if (j.success) {
+    //             config.set("token", token)
+    //             localStorage.token = token;
+    //             ipcRenderer.send('logged-in')
+    //           }
+    //           // console.log(j)
+    //         });
+    //       }
+    //     });
+    //   }
+    // } catch (err) {
+    //   console.error(err)
+    // }
+    $('#btn-login').on('click', () => {
+      const email = $('#txtUsr').val()
+      const pass = $('#txtPwd').val()
+      // console.log(email)
+      // console.log(pass)
+      const form = new FormData()
+      form.append("email", email)
+      form.append("password", pass)
+
+      const settings = {
+        "url": url_login,
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Accept": "application/json"
+        },
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "data": form
+      }
+
+      $.ajax(settings).done(function (response) {
+        let j = JSON.parse(response)
+        console.log(j)
+        if(j.success) {
+
+          // const enc_pass = encrypt(pass)
+          // const enc_token = encrypt(j.data.token)
+          // let obj = {}
+
+          // obj.username = email
+
+          // obj.password = enc_pass
+          // obj.token = enc_token
+          config.set('username', email)
+          config.set('password', pass)
+          config.set('token', j.data.token)
+
+          localStorage.token = j.data.token
+
+          // url_CheckCam = config.get("server_url") + "api/v1/labs/" + j.data.lab_id + "/deviceCheck"
+          // const form2 = new FormData();
+          // form2.append("dev_id", cameraId);
+          // let s1 = {
+          //   "url": url_CheckCam,
+          //   "method": "POST",
+          //   "timeout": 0,
+          //   "headers": {
+          //     "Accept": "application/json",
+          //     "Authorization": "Bearer " + localStorage.token
+          //   },
+          //   "processData": false,
+          //   "mimeType": "multipart/form-data",
+          //   "contentType": false,
+          //   data: form2
+          // };
+          // $.ajax(s1).done(function (response1) {
+          //   let j = JSON.parse(response1)
+          //   console.log(j);
+          //   console.log(j.success)
+          //   if(j.success) {
+          //     console.log(j.data)
+              const form1 = new FormData();
+              form1.append("email", config.get('username'));
+              form1.append("password", config.get('password'));
+
+              let settings1 = {
+                "url": url_getToken,
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                  "Accept": "application/json",
+                  "Authorization": "Bearer " + localStorage.token
+                },
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form1
+              };
+
+              $.ajax(settings1).done(function (response1) {
+                console.log(response1);
+                let jj = JSON.parse(response1)
+                localStorage.lab_token = jj.data.token
+                config.set("lab_token", jj.data.token)
+                localStorage.labId = 1
+              });
+              ipcRenderer.send('logged-in')
+            // }
+            // let j1 = JSON.parse(response1)
+            // localStorage.user_name = response1.name
+            // console.log(response1.name)
+            // console.log(localStorage.user_name)
+            // config.set('user_name', response1.name)
+            // let j = JSON.parse(response)
+          // });
+
+          // let settings1 = {
+          //   "url": url_user,
+          //   "method": "GET",
+          //   "timeout": 0,
+          //   "headers": {
+          //     "Accept": "application/json",
+          //     "Authorization": "Bearer " + localStorage.token
+          //   }
+          // };
+          // $.ajax(settings1).done(function (response1) {
+          //   console.log(response1);
+          //   // let j1 = JSON.parse(response1)
+          //   localStorage.user_name = response1.name
+          //   console.log(response1.name)
+          //   console.log(localStorage.user_name)
+          //   config.set('user_name', response1.name)
+          //   // let j = JSON.parse(response)
+          // });
+
+
+        }
+        else {
+          //       .error(function (error) {
+          // $('#lbl').text('نام کاربری یا کلمه عبور اشتباه است')
+          // })
+        }
+      })
+    })
+    $('#login-exit').on('click', () => {
+      ipcRenderer.send('exit')
+    })
+  }
+</script>
+<!--<script src='./watcher.js'></script>-->
+</body>
+</html>

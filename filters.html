@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>فیلترهای تصویر</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="filters.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <label for="brightness">Brightness : </label><span id="brVal" class="val-span">0</span>
+<!--            <input id="" type="range"  >-->
+<!--            <label for="customRange1" class="form-label">Example range</label>-->
+            <input type="range" name="brightness" min="-255" max="255" value="0" class="form-range" id="brightness" oninput="this.previousElementSibling.innerHTML = this.value">
+           <br>
+        </div>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <label for="contrast">Contrast : </label><span id="coVal" class="val-span">0</span>
+            <input id="contrast" class="form-range" type="range" name="brightness" min="-255" max="255" value="0" oninput="this.previousElementSibling.innerHTML = this.value">
+            <br>
+        </div>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <label for="red">Red : </label><span id="reVal" class="val-span">0</span>
+            <input id="red" class="form-range" type="range" name="brightness" min="-255" max="255" value="0" oninput="this.previousElementSibling.innerHTML = this.value">
+            <br>
+        </div>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <label for="green">Green : </label><span id="grVal" class="val-span">0</span>
+            <input id="green" class="form-range" type="range" name="brightness" min="-255" max="255" value="0" oninput="this.previousElementSibling.innerHTML = this.value">
+            <br>
+        </div>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <label for="blue">Blue : </label><span id="blVal" class="val-span">0</span>
+            <input id="blue" class="form-range" type="range" name="brightness" min="-255" max="255" value="0" oninput="this.previousElementSibling.innerHTML = this.value">
+            <br>
+        </div>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <label for="gamma">Gamma : </label><span id="gaVal" class="val-span">0</span>
+            <input id="gamma" class="form-range" type="range" name="brightness" min="-255" max="255" value="0" oninput="this.previousElementSibling.innerHTML = this.value">
+            <br>
+        </div>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <input id="apply" class="btn btn-primary" type="button" value="اعمال شود">
+            <br>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    let $ = require ('jquery')
+    const path = require('path')
+    const fs = require("fs")
+    const {ipcRenderer} = require('electron')
+    // let viewer
+    window.onload = function () {
+        $("#apply").click(function () {
+            let brightness = $("#brightness").val()
+            let contrast = $("#contrast").val()
+            let red = $("#red").val()
+            let green = $("#green").val()
+            let blue = $("#blue").val()
+            let gamma = $("#gamma").val()
+            filters = {
+                'brightness': brightness,
+                'contrast': contrast,
+                'red': red,
+                'green': green,
+                'blue': blue,
+                'gamma': gamma,
+            }
+            console.log(filters)
+            ipcRenderer.send('filter', filters)
+        })
+    };
+
+</script>
+</body>
+</html>

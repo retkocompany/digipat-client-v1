@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Openseadragon guides</title>
+  <meta name="description" content="OpenSeadragon plugin that adds option to draw guides">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #viewer-container {
+      margin: 0 auto;
+      width: 1000px;
+      height: 700px;
+      background: #333;
+    }
+  </style>
+  <link rel="stylesheet" href="css/openseadragon-guides.css">
+</head>
+<body>
+  <div id="viewer-container"></div>
+
+  <script src="node_modules/openseadragon/build/openseadragon/openseadragon.js"></script>
+  <script src="dist/openseadragon-guides.js"></script>
+  <script>
+    // Demo viewer
+    var viewer = OpenSeadragon({
+      id: 'viewer-container',
+      prefixUrl: 'node_modules/openseadragon/build/openseadragon/images/',
+      crossOriginPolicy: 'Anonymous',
+      defaultZoomLevel: 1,
+      sequenceMode: true,
+      tileSources: [
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05954.dzi",
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05955.dzi",
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05956.dzi",
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05957.dzi",
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05958.dzi",
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05959.dzi",
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05960.dzi",
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05961.dzi",
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05962.dzi",
+        "http://openseadragon.github.io/example-images/pnp/ppmsca/05900/05954/05963.dzi"
+      ],
+      minZoomImageRatio: 0.1
+    });
+
+    viewer.guides({
+      prefixUrl: '/images/',
+      allowRotation: true,
+      useSessionStorage: true
+    });
+  </script>
+</body>
+</html>

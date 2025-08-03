@@ -1,0 +1,30 @@
+{
+  "source": {
+    "include": [
+      "../openseadragon-imaging/shared/docs/docs-globals.js",
+      "./dist/openseadragon-viewerinputhook.js"
+    ]
+  },
+  "sourceType": "module",
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true
+    },
+    "openseadragonimaging": {
+      "logMode": false,
+      "debugMode": false,
+      "useHighlightJs": true
+    }
+  },
+  "opts": {
+    "destination": "./docs/",
+    "template": "../openseadragon-imaging/shared/docs/templates/openseadragonimaging",
+    "private": false
+  }
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>آزمایشگاه</title>
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous"
+  />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="content/css/lab.css">
+</head>
+<body data-spy="scroll" data-target=".sidebar-detached" class="has-detached-right">
+<!-- Page container -->
+<div class="page-container">
+
+  <!-- Page content -->
+  <div class="page-content">
+    <!-- Main content -->
+    <div class="content-wrapper">
+      <!-- Content area -->
+      <div class="content">
+
+        <div class="row">
+          <div class="col-sm-2 col-lg-2"></div>
+          <div class="col-sm-4 col-lg-4">
+            <img src="images/lab2.jpg" alt="" class="img-responsive"  id="projectimage">
+          </div>
+          <div class="col-sm-4 col-lg-4">
+
+            <!-- User details (with sample pattern) -->
+            <div class="content-group">
+
+              <div class="panel panel-body no-border-top no-border-radius-top">
+                <input type="hidden" name="labId" value="" id="labId">
+                <div class="form-group mt-5">
+                  <label class="text-semibold">نام آزمایشگاه : </label>
+                  <span class="pull-right-sm" id="labName"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="text-semibold">استان : </label>
+                  <span class="pull-right-sm" id="province"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="text-semibold">شهر : </label>
+                  <span class="pull-right-sm" id="city"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="text-semibold">آدرس : </label>
+                  <span class="pull-right-sm" id="address"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="text-semibold">زمینه فعالیت : </label>
+                  <span class="pull-right-sm" id="field"></span>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- /user details (with sample pattern) -->
+
+          </div>
+          <div class="col-sm-2 col-lg-2"></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2 col-lg-2"></div>
+          <div class="col-sm-8 col-lg-8">
+            <div class="panel panel-flat" id="documents">
+              <div class="table-responsive">
+
+                <table class="table table-hover datatable-basic">
+                  <thead>
+                  <tr>
+                    <th class="text-center">عنوان</th>
+                    <th class="text-center">نام آزمایشگاه</th>
+                    <th class="text-center">نام بیمار</th>
+                    <th class="text-center">نام مسئول</th>
+                    <th class="text-center"></th>
+                  </tr>
+                  </thead>
+                  <tbody id="docsInfo">
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+            <button id="back" type="button" class="btn btn-info btn-lg btn-block">
+              بازگشت
+            </button>
+          </div>
+          <div class="col-sm-2 col-lg-2"></div>
+        </div>
+      </div>
+
+      <!-- /content area -->
+
+    </div>
+    <!-- /main content -->
+
+  </div>
+  <!-- /page content -->
+
+</div>
+<!-- /page container -->
+<script type="text/javascript">
+  let $ = require ('jquery')
+  const path = require('path')
+  const fs = require("fs")
+  const {ipcRenderer} = require('electron')
+  const db_path = path.join(__dirname, 'wsi.json')
+  const config = require('electron-json-config')
+
+  // config.set("server_url", "http://wsi.retko.ir/")
+
+  const url = config.get("server_url") + "api/v1/labs", url2 = config.get("server_url") + "api/v1/labs/" + localStorage.labId + "/documents"
+
+  window.onload = function () {
+    let settings = {
+      "url": url,
+      "method": "GET",
+      "timeout": 0,
+      "headers": {
+        "Accept": "application/json",
+        "Authorization": "Bearer " + localStorage.token
+      },
+      "processData": false,
+      "mimeType": "multipart/form-data",
+      "contentType": false
+    };
+
+    $.ajax(settings).done(function (response) {
+      let j = JSON.parse(response)
+      $('#labName').text(j.data[0].name)
+      $('#province').text(j.data[0].province)
+      $('#city').text(j.data[0].city)
+      $('#address').text(j.data[0].address)
+      $('#field').text(j.data[0].field)
+      localStorage.labName = j.data[0].name
+      config.set("labName", j.data[0].name)
+      console.log(response);
+      console.log(j);
+    });
+
+    settings.url = url2
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      let j = JSON.parse(response)
+      let table = $("#docsInfo");
+      table.empty();
+      for (let i = 0; i < j.data.length; i++) {
+        table.append(buildRow(j.data[i], i));
+      }
+      $('a.details').click(function() {
+        localStorage.docId = $(this).parent().parent().find(".docId").val()
+        config.set("docId", localStorage.docId)
+        ipcRenderer.send('document')
+      })
+    });
+    function buildRow(doc, index) {
+      return "<tr class='doc'><input type='hidden' class='docId' id='docId" + index + "' value='" + doc.id + "'>" + buildTitleCol(doc.title) + buildLabNameCol(localStorage.labName) + buildPatientCol(doc.user.name) + buildOperatorCol(doc.owner.name) + buildDetailsCol(index) + "</tr>";
+    }
+    function buildTitleCol(name) {
+      return "<td class='text-center'>" + name + "</td>";
+    }
+    function buildLabNameCol(province) {
+      return "<td class='text-center'>" + province + "</td>";
+    }
+    function buildPatientCol(city) {
+      return "<td class='text-center'>" + city + "</td>";
+    }
+    function buildOperatorCol(address) {
+      return "<td class='text-center'>" + address + "</td>";
+    }
+    function buildDetailsCol(index) {
+      return "<td class='text-center'><a href='#' id='details" + index + "' class='details'><i class='glyphicon glyphicon-plus'></i></a></td>";
+    }
+    $("#back").click(function () {
+      ipcRenderer.send('back');
+    });
+  }
+</script>
+</body>
+</html>

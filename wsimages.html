@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<!-- Mirrored from demo.interface.club/limitless/layout_2/RTL/default/datatable_basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Sep 2017 13:53:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>پنل مدیریت</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="assets/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <!-- Core JS files -->
+<!--    <script type="text/javascript" src="assets/assets/js/pages/datatables_basic.js"></script>-->
+
+    <script type="text/javascript" src="assets/assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="assets/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+<!--    <script type="text/javascript" src="assets/assets/js/plugins/tables/datatables/datatables.min.js"></script>-->
+<!--    <script type="text/javascript" src="assets/assets/js/plugins/forms/selects/select2.min.js"></script>-->
+    <script type="text/javascript" src="assets/assets/js/plugins/forms/selects/bootstrap_select.min.js"></script>
+
+    <script type="text/javascript" src="assets/assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/assets/js/pages/form_bootstrap_select.js"></script>
+
+    <script type="text/javascript" src="assets/assets/js/plugins/uploaders/plupload/plupload.full.min.js"></script>
+    <script type="text/javascript" src="assets/assets/js/plugins/uploaders/plupload/plupload.queue.min.js"></script>
+
+    <script type="text/javascript" src="assets/assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/assets/js/pages/uploader_plupload.js"></script>
+    <!-- /theme JS files -->
+    <script>if (window.module) module = window.module;</script>
+</head>
+
+<body>
+
+    <!-- Main navbar -->
+    <div class="navbar navbar-default header-highlight">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">لوگو اینجاست</a>
+
+            <ul class="nav navbar-nav visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav">
+                <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+
+
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-bubbles4"></i>
+                            <span class="visible-xs-inline-block position-right">Messages</span>
+                            <span class="badge bg-warning-400">2</span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-content width-350">
+                            <div class="dropdown-content-heading">
+                                پیام ها
+
+                            </div>
+
+                            <ul class="media-list dropdown-content-body">
+                                <li class="media">
+                                    <div class="media-body">
+                                        <a href="#" class="media-heading">
+                                            <!--                    <span class="text-semibold">James Alexander</span>-->
+                                            <span class="media-annotation pull-right">04:58</span>
+                                        </a>
+
+                                        <span class="text-muted">کارشناس احمدی عکس جدیدی برای شما ارسال کرده است  <a href="inbox.html">مشاهده</a></span>
+                                    </div>
+                                </li>
+
+                                <li class="media">
+
+                                    <div class="media-body">
+                                        <a href="#" class="media-heading">
+                                            <span class="media-annotation pull-right">دو روز پیش</span>
+                                        </a>
+
+                                        <span class="text-muted">کارشناس احمدی عکس جدیدی برای شما ارسال کرده است  <a href="inbox.html">مشاهده</a></span>
+                                    </div>
+                                </li>
+
+                                <li class="media">
+
+                                    <div class="media-body">
+                                        <a href="#" class="media-heading">
+                                            <span class="media-annotation pull-right">22:48</span>
+                                        </a>
+                                        <span class="text-muted">کارشناس احمدی عکس جدیدی برای شما ارسال کرده است  <a href="inbox.html">مشاهده</a></span>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <div class="dropdown-content-footer">
+                                <a href="#" data-popup="tooltip" title="All messages"><i class="icon-menu display-block"></i></a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown dropdown-user">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="assets/assets/images/th.jpg" alt="">
+                            <span class="user-name"></span>
+                            <i class="caret"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#"><i class="icon-profile"></i>تکمیل پروفایل</a></li>
+                            <li><a href="#"><i class="icon-sort-numberic-desc"></i>تغییر رمز عبور</a></li>
+                            <li><a href="#" class="logout"><i class="icon-switch2"></i> خروج از حساب کاربری</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /main navbar -->
+
+
+    <!-- Page container -->
+    <div class="page-container">
+
+        <!-- Page content -->
+        <div class="page-content">
+
+            <!-- Main sidebar -->
+            <div class="sidebar sidebar-main">
+                <div class="sidebar-content">
+
+                    <!-- User menu -->
+                    <div class="sidebar-user">
+                        <div class="category-content">
+                            <div class="media">
+                                <a href="#" class="media-left"><img src="assets/assets/images/th.jpg" class="img-circle img-sm" alt=""></a>
+                                <div class="media-body">
+                                    <span class="media-heading text-semibold user-name"></span>
+                                    <div class="text-size-mini text-muted">
+                                        <i class="icon-pin text-size-small"></i> &nbsp;Tehran, TEH
+                                    </div>
+                                </div>
+
+                                <div class="media-right media-middle">
+                                    <ul class="icons-list">
+                                        <li>
+                                            <a href="#"><i class="icon-cog3"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /user menu -->
+
+
+                    <!-- Main navigation -->
+                    <div class="sidebar-category sidebar-category-visible">
+                        <div class="category-content no-padding">
+                            <ul class="navigation navigation-main navigation-accordion">
+                                <li>
+                                    <a href="#"><i class="icon-grid7"></i> <span>میزکار</span></a>
+                                    <ul>
+                                        <!--                                    <li><a href="labs.html">لیست آزمایشگاه ها</a></li>-->
+                                        <li class="active"><a href="files.html">لیست پرونده ها</a></li>
+
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-inbox"></i> <span>پیام ها</span></a>
+                                    <ul>
+                                        <li><a href="sendmessage.html">ارسال پیام</a></li>
+                                        <li><a href="inbox.html">صندوق دریافت</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-help"></i> <span>راهنما</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-user"></i> <span>درباره ما</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /main navigation -->
+
+                </div>
+            </div>
+            <!-- /main sidebar -->
+
+
+            <!-- Main content -->
+            <div class="content-wrapper">
+
+                <!-- Page header -->
+
+                <!-- /page header -->
+
+
+                <!-- Content area -->
+                <div class="content">
+                    <form action="#">
+    <!--                    <div class="form-group">-->
+    <!--                        <label>گیرنده:</label>-->
+    <!--                        <select class="bootstrap-select" data-width="100%">-->
+    <!--                            <option value="AK">دکتر علیرضا موحدی</option>-->
+    <!--                            <option value="HI">دکتر سارا رجبی</option>-->
+    <!--                            <option value="CA">دکتر محبی</option>-->
+    <!--                            <option value="NV">دکتر نوذری</option>-->
+    <!--                        </select>-->
+    <!--                    </div>-->
+    <!--                    <div class="file-uploader"><p>Your browser doesn't have Flash installed.</p></div>-->
+                        <div class="form-group">
+                            <label class="control-label col-md-4">نوع بزرگنمایی تصویر هنگام ساخت</label>
+                            <div class="col-md-8">
+                                <div class="col-md-2">
+                                    <label class="zoom">
+                                        <input type="radio" value="20" name="zoom" class="control-primary" checked>
+                                        20x
+                                    </label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="zoom">
+                                        <input type="radio" value="40" name="zoom" class="control-danger">
+                                        40x
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">نوع تصویر wsi</label>
+                            <div class="col-md-8">
+                                <div class="col-md-2">
+                                    <label class="type">
+                                        <input type="radio" value="H&E" name="image_type" class="control-primary image_type" checked>
+                                        H&E
+                                    </label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="type">
+                                        <input type="radio" value="IHC" name="image_type" class="control-primary image_type">
+                                        IHC
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group hidden" id="ihc-type">
+                            <label class="control-label col-md-4">نوع رنگ آمیزی تصویر IHC</label>
+                            <div class="col-md-8">
+                                <div class="col-md-2">
+                                    <label class="ihc-type">
+                                        <input type="radio" value="ER" name="image_ihc_type" class="control-primary" checked>
+                                        ER
+                                    </label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="ihc-type">
+                                        <input type="radio" value="PR" name="image_ihc_type" class="control-danger">
+                                        PR
+                                    </label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="ihc-type">
+                                        <input type="radio" value="KI67" name="image_ihc_type" class="control-danger">
+                                        KI67
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-block sendwsi">شروع ساخت تصویر<i class="icon-file-check position-right"></i></button>
+
+                    </form>
+                                <div class="tabbable allwsi">
+                                    <ul class="nav nav-tabs nav-justified">
+                                        <li class="active"><a href="#basic-justified-tab1" data-toggle="tab">عکس های اصلی</a></li>
+                                        <li><a href="#basic-justified-tab2" data-toggle="tab">اسنپ شات ها</a></li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane wsi_img active" id="basic-justified-tab1">
+                                            <div class="thumbnail wsiimage">
+                                                <div class="thumb">
+                                                    <img src="images/adjust2.png" alt="">
+
+                                                    <div class="caption-overflow">
+                                                        <span>
+                                                            <a href="#" class="btn btn-info">View</a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="caption text-center">
+                                                    <p class="text-muted mb-15 mt-5">In on my jointure horrible margaret suitable he followed speedily</p>
+
+                                                    <a href="#" class="btn btn-primary"><i class="icon-eye"></i></a>
+                                                    <a href="#" class="btn btn-danger">حذف</a>
+                                                </div>
+                                            </div>
+                                            <div class="thumbnail wsiimage">
+                                                <div class="thumb">
+                                                    <img src="images/adjust2.png" alt="">
+
+                                                    <div class="caption-overflow">
+                                            <span>
+                                                <a href="#" class="btn btn-info">View</a>
+                                            </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="caption text-center">
+                                                    <p class="text-muted mb-15 mt-5">In on my jointure horrible margaret suitable he followed speedily</p>
+
+                                                    <a href="#" class="btn btn-primary"><i class="icon-eye"></i></a>
+                                                    <a href="#" class="btn btn-danger">حذف</a>
+                                                </div>
+                                            </div>
+                                            <div class="thumbnail wsiimage">
+                                                <div class="thumb">
+                                                    <img src="images/adjust2.png" alt="">
+
+                                                    <div class="caption-overflow">
+                                            <span>
+                                                <a href="#" class="btn btn-info">View</a>
+                                            </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="caption text-center">
+                                                    <p class="text-muted mb-15 mt-5">In on my jointure horrible margaret suitable he followed speedily</p>
+
+                                                    <a href="#" class="btn btn-primary"><i class="icon-eye"></i></a>
+                                                    <a href="#" class="btn btn-danger">حذف</a>
+                                                </div>
+                                            </div>
+                                            <div class="thumbnail wsiimage">
+                                                <div class="thumb">
+                                                    <img src="images/adjust2.png" alt="">
+
+                                                    <div class="caption-overflow">
+                                            <span>
+                                                <a href="#" class="btn btn-info">View</a>
+                                            </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="caption text-center">
+                                                    <p class="text-muted mb-15 mt-5">In on my jointure horrible margaret suitable he followed speedily</p>
+
+                                                    <a href="#" class="btn btn-primary"><i class="icon-eye"></i></a>
+                                                    <a href="#" class="btn btn-danger">حذف</a>
+                                                </div>
+                                            </div>
+                                            <div class="thumbnail wsiimage">
+                                                <div class="thumb">
+                                                    <img src="images/adjust2.png" alt="">
+
+                                                    <div class="caption-overflow">
+                                            <span>
+                                                <a href="#" class="btn btn-info">View</a>
+                                            </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="caption text-center">
+                                                    <p class="text-muted mb-15 mt-5">In on my jointure horrible margaret suitable he followed speedily</p>
+
+                                                    <a href="#" class="btn btn-primary"><i class="icon-eye"></i></a>
+                                                    <a href="#" class="btn btn-danger">حذف</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="basic-justified-tab2">
+                                            <div class="thumbnail wsisnapimage">
+                                                <div class="thumb">
+                                                    <img src="images/adjust2.png" alt="">
+
+                                                    <div class="caption-overflow">
+                                            <span>
+                                                <a href="#" class="btn btn-info">View</a>
+                                            </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="caption text-center">
+                                                    <p class="text-muted mb-15 mt-5">In on my jointure horrible margaret suitable he followed speedily</p>
+
+                                                    <a href="#" class="btn btn-primary"><i class="icon-eye"></i></a>
+                                                    <a href="#" class="btn btn-danger">حذف</a>
+                                                </div>
+                                            </div>
+                                            <div class="thumbnail wsisnapimage">
+                                                <div class="thumb">
+                                                    <img src="images/adjust2.png" alt="">
+
+                                                    <div class="caption-overflow">
+                                            <span>
+                                                <a href="#" class="btn btn-info">View</a>
+                                            </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="caption text-center">
+                                                    <p class="text-muted mb-15 mt-5">In on my jointure horrible margaret suitable he followed speedily</p>
+
+                                                    <a href="#" class="btn btn-primary"><i class="icon-eye"></i></a>
+                                                    <a href="#" class="btn btn-danger">حذف</a>
+                                                </div>
+                                            </div>
+                                            <div class="thumbnail wsisnapimage">
+                                                <div class="thumb">
+                                                    <img src="images/adjust2.png" alt="">
+
+                                                    <div class="caption-overflow">
+                                            <span>
+                                                <a href="#" class="btn btn-info">View</a>
+                                            </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="caption text-center">
+                                                    <p class="text-muted mb-15 mt-5">In on my jointure horrible margaret suitable he followed speedily</p>
+
+                                                    <a href="#" class="btn btn-primary"><i class="icon-eye"></i></a>
+                                                    <a href="#" class="btn btn-danger">حذف</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="basic-justified-tab3">
+
+                                        </div>
+
+                                        <div class="tab-pane" id="basic-justified-tab4">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                    <!-- /basic datatable -->
+                    <div class="exit">
+                        <a href="files.html" type="submit" class="btn btn-secondary">بازگشت به لیست پرونده ها<i class="icon-arrow-left7 position-right"></i></a>
+                    </div>
+
+
+
+                    <!-- Footer -->
+                    <div class="footer text-muted">
+                        powered by retko team @<a href="retko.ir">retko.ir</a>
+                    </div>
+                    <!-- /footer -->
+
+                </div>
+                <!-- /content area -->
+
+            </div>
+            <!-- /main content -->
+
+        </div>
+        <!-- /page content -->
+
+    </div>
+    <!-- /page container -->
+    <script type="text/javascript">
+        let $ = require ('jquery')
+        const path = require('path')
+        const fs = require("fs")
+        const {ipcRenderer} = require('electron')
+        const config = require('electron-json-config')
+
+        // config.set("server_url", "http://wsi.retko.ir/")
+
+        const url_get = config.get("server_url") + "api/v1/labs/" + localStorage.labId + "/documents/" + localStorage.docId, url_create = config.get("server_url") + "api/v1/labs/" + localStorage.labId + "/documents/" + localStorage.docId + "/items", url_logout = config.get("server_url") + "api/logout"
+        console.log(localStorage.token);
+        function isOnline() {
+            return navigator.onLine;
+        }
+        window.onload = function () {
+            $('.user-name').text(localStorage.user_name)
+            let settings = {
+                "url": url_get,
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Accept": "application/json",
+                    "Authorization": "Bearer " + localStorage.token
+                }
+            };
+            $.ajax(settings).done(function (response) {
+                // console.log(response);
+                // let j = JSON.parse(response)
+                let j = response
+                // console.log(j)
+                let set = $(".wsi_img");
+                set.empty();
+                for (let i = 0; i < j.data.items.length; i++) {
+                    set.append(buildItem(j.data.items[i], i));
+                }
+                $('.view').click(function() {
+                    localStorage.itemId = $(this).parent().parent().find("input[name='itemId']").val()
+                    console.log(localStorage.itemId)
+                    localStorage.itemPath = $(this).parent().parent().find("input[name='itemPath']").val()
+                    console.log(localStorage.itemPath)
+                    config.set("itemId", localStorage.itemId)
+                    config.set("itemPath", localStorage.itemPath)
+                    ipcRenderer.send('viewer')
+                })
+                $('.show').click(function() {
+                    localStorage.itemId = $(this).parent().parent().parent().parent().find("input[name='itemId']").val()
+                    console.log(localStorage.itemId)
+                    localStorage.itemPath = $(this).parent().parent().parent().parent().find("input[name='itemPath']").val()
+                    console.log(localStorage.itemPath)
+                    config.set("itemId", localStorage.itemId)
+                    config.set("itemPath", localStorage.itemPath)
+                    ipcRenderer.send('viewer')
+                })
+                $('.delete').click(function() {
+                    localStorage.itemId = $(this).parent().parent().find(".itemId").val()
+                    localStorage.itemPath = $(this).parent().parent().find(".itemPath").val()
+                    config.set("itemId", localStorage.itemId)
+                    config.set("itemPath", localStorage.itemPath)
+                    // ipcRenderer.send('viewer')
+                })
+            });
+            $(".sendwsi").click(function () {
+                // let arr = "ali/pouria".split('/')
+                // console.log("ali/pouria".split('/').pop())
+                // let type = $('input[name="image_type"]:checked').val();
+                // ipcRenderer.send('newwsi')
+                // ipcRenderer.on('path', (event, ...args) => {
+                    // console.log(args)
+                    // let arr = String(args[0]).split('/')
+                    // let label = String(args[0]).split('/').pop()
+                // let label = 'patho'
+                // let path = 'wsi-images/1/1.dzi'
+                var selectedZoom = $('input[name="zoom"]:checked').val();
+                var selectedImageType = $('input[name="image_type"]:checked').val();
+                var selectedImageIHCType = $('input[name="image_ihc_type"]:checked').val();
+
+                if (selectedImageType === 'H&E') {
+                    console.log('H&E')
+                    ipcRenderer.send('newwsiHE')
+                    // ipcRenderer.on('path', (event, arg) => {
+                    //     console.log(arg)
+                    //     path = 'wsi-images/' + arg + '/' + arg + '.dzi';
+                    // })
+                }
+                else if (selectedImageType === 'IHC') {
+                    console.log('IHC')
+                    ipcRenderer.send('newwsiIHC')
+                    // ipcRenderer.on('path', (event, arg) => {
+                    //     console.log(arg)
+                    //     path = 'wsi-images/' + arg + '/' + arg + '.dzi';
+                    // })
+                }
+                ipcRenderer.once('path', (event, data) => {
+                    console.log(data)
+                    let label = data
+                    // console.log(label)
+                    let path = 'wsi-images/' + label + '/' + label + '.dzi';
+                    // console.log(label)
+                    // console.log(selectedZoom)
+                    // console.log(selectedImageType)
+                    // console.log(selectedImageIHCType)
+                    let form = new FormData();
+                    form.append("type", "pathology");
+                    form.append("detail", "");
+                    form.append("resident_id", localStorage.resId);
+                    form.append("doctor_id", localStorage.doctId);
+                    form.append("document_id", localStorage.docId);
+                    form.append("lab_id", localStorage.labId);
+                    // form.append("path", args[0]);
+                    form.append("path", path);
+                    form.append("label", label);
+                    form.append("zoom", selectedZoom);
+                    form.append("image_type", selectedImageType);
+                    form.append("image_ihc_type", selectedImageIHCType);
+
+                    settings = {
+                        "url": url_create,
+                        "method": "POST",
+                        "timeout": 0,
+                        "headers": {
+                            "Accept": "application/json",
+                            "Authorization": "Bearer " + localStorage.token
+                        },
+                        "processData": false,
+                        "mimeType": "multipart/form-data",
+                        "contentType": false,
+                        "data": form
+                    };
+                    if (isOnline()){
+                        $.ajax(settings).done(function (response) {
+                            console.log(response);
+                            // ipcRenderer.send('file_created');
+                        });
+                    }
+                    else {
+                        console.log('No Internet Connection');
+                    }
+                })
+            })
+            function buildItem(item, index) {
+                // console.log(item)
+                // '<img src = "https://rayancad.retko.ir/image-loader.php?addr=' + item.path + '_files/8/0_0.jpeg" alt = "" >'
+                let lnk = config.get("server_url") + "image-loader.php?addr=" + item.path.split('.')[0] + "_files/8/0_0.jpeg"
+                return '<div class="thumbnail wsiimage"><input type="hidden" name="itemId" value="' + item.id + '"><input type="hidden" name="itemPath" value="' + item.path + '"><input type="hidden" name="labId" value="' + item.lab_id + '"><input type="hidden" name="resId" value="' + item.resident_id + '"><input type="hidden" name="docId" value="' + item.document_id + '"><div class="thumb"><img src="' + lnk + '" alt="تصویر wsi"><div class="caption-overflow"><span><a href="#" class="btn btn-info show">View</a></span></div></div><div class="caption text-center"><p class="text-muted mb-15 mt-5">In on my jointure horrible margaret suitable he followed speedily</p><a href="#" class="btn btn-primary view"><i class="icon-eye"></i></a><a href="#" class="btn btn-danger delete">حذف</a></div></div>';
+            }
+
+            $("#back").click(function () {
+                ipcRenderer.send('back');
+            });
+            $('.logout').click(function (){
+                settings = {
+                    "url": url_logout,
+                    "method": "POST",
+                    "timeout": 0,
+                    "headers": {
+                        "Accept": "application/json",
+                        "Authorization": "Bearer " + localStorage.token
+                    }
+                };
+
+                $.ajax(settings).done(function (response1) {
+                    console.log(response1);
+                    ipcRenderer.send('logout')
+                });
+            });
+        }
+        const radioButtons = document.querySelectorAll('input.image_type');
+        const targetElement = document.getElementById('ihc-type');
+
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', (event) => {
+                if (event.target.checked) {
+                    targetElement.classList.toggle('hidden');  // Add or remove class 'active'
+                }
+            });
+        });
+    </script>
+<!--    <script src='./watcher.js'></script>-->
+</body>
+
+<!-- Mirrored from demo.interface.club/limitless/layout_2/RTL/default/datatable_basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Sep 2017 13:53:43 GMT -->
+</html>

@@ -1,0 +1,58 @@
+
+@font-face {
+    font-family: "irSans";
+    src: url( "content/fonts/farsi/IRANSansWeb(FaNum)_Bold.ttf" );
+    src: local( "?" ), url( "content/fonts/farsi/IRANSansWeb(FaNum)_Bold.ttf" )format( "truetype" );
+}
+html,body{
+    /*margin: 0;*/
+    /*height: 600px !important;*/
+    /*background: radial-gradient(circle, #ffffff, #cccccc, #999999);*/
+    font-family: "irSans";
+    position: relative;
+    min-height: 100%;
+
+}
+.panelwithadd{
+    margin-top: 17px;
+}
+.wsiimage{
+    width: 19%;
+    float: left;
+    margin: 3px;
+}
+.wsisnapimage{
+    width: 30%;
+    float: left;
+    margin: 3px;
+}
+.exit{
+    float: left;
+    margin-top: 10px;
+}
+.wsiimageinbox{
+    width: 100%;
+}
+.gender{
+    padding: 8px;
+}
+.sendwsi{
+    margin: 10px;
+}
+.allwsi{
+    margin-top: 80px;
+}
+.message{
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    margin: 10px;
+    padding: 20px;
+}
+#moreinfo{
+    display: none;
+}
+
+.thumb{
+    max-height: 150px;
+    max-width: 150px;
+}

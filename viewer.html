@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>پاتولوژی</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://kit.fontawesome.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@recogito/annotorious@latest/dist/annotorious.min.css">
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="lib/osd/annotorious/annotorious.min.css"
+    />
+    <link type="text/css" rel="stylesheet" href="magnify.css" />
+<!--    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">-->
+<!--    <link href="assets/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">-->
+<!--    <link href="assets/assets/css/bootstrap.css" rel="stylesheet" type="text/css">-->
+<!--    <link href="assets/assets/css/core.css" rel="stylesheet" type="text/css">-->
+<!--    <link href="assets/assets/css/components.css" rel="stylesheet" type="text/css">-->
+<!--    <link href="assets/assets/css/colors.css" rel="stylesheet" type="text/css">-->
+    <link href="style_v.css" rel="stylesheet" type="text/css">
+
+    <script
+      src="https://kit.fontawesome.com/cb1ce95752.js"
+      crossorigin="anonymous"
+    ></script>
+<!--    <script src="lib/caman.full.min.js"></script>-->
+  </head>
+  <body>
+    <div class="container">
+      <!-- Toolbar -->
+      <div class="top-nav">
+        <div id="polygon" class="top-nav-item active-tool">
+          <div class="nav-icon">
+            <img src="images/pentagon.png" alt="polygon" />
+          </div>
+
+        </div>
+
+        <div id="rectangle" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/rectangle.png" alt="rectangle" />
+          </div>
+        </div>
+
+        <div id="imageAdjust" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/adjust3.png" alt="rectangle" />
+          </div>
+        </div>
+
+        <div id="snapshot" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/snapshot.png" alt="snapshot" />
+          </div>
+        </div>
+
+        <div id="search" class="top-nav-item">
+          <a class="nav-icon" href="#search">
+            <img src="images/search.png" alt="search" />
+          </a>
+        </div>
+
+        <div id="zoomin" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/zoom-in.png" alt="zoom-in" />
+          </div>
+        </div>
+        <div id="zoomout" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/magnifying-glass.png" alt="zoom-out" />
+          </div>
+        </div>
+
+        <div id="zoomreset" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/zoom.png" alt="zoom" />
+          </div>
+        </div>
+
+        <div id="ruler" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/ruler.png" alt="ruler" />
+          </div>
+        </div>
+        <div id="measure" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/measure.png" alt="measure" />
+          </div>
+        </div>
+
+        <div id="move" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/move.png" alt="move" />
+          </div>
+        </div>
+
+        <div id="fullscreen" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/full-screen.png" alt="fullscreen" />
+          </div>
+        </div>
+
+        <div id="navigation" class="top-nav-item">
+          <div class="nav-icon">
+            <img src="images/navigation.png" alt="navigation" />
+          </div>
+        </div>
+      </div>
+
+      <div class="main">
+        <!--Main Content -->
+        <div id="main" class="main-content sm:1/2 md:2/3 lg:3/4">
+          <!--                <h1 class="">Put Main Content here</h1>-->
+
+          <div class="img-zoom-container">
+            <div id="myresult" class="img-zoom-result"></div>
+          </div>
+
+          <!--  <button onclick="emitCommand('open-gallery');">انتخاب پوشه</button>-->
+
+          <div id="viewer" style="width: 1024px; height: 576px"></div>
+          <div id="mag" class="hide" style="width: 200px; height: 150px; position: absolute; pointer-events: none; transform: translate(33%, 58%) "></div>
+        </div>
+
+        <!--Right Sidebar -->
+        <!--sm:1/2 md:1/3 lg:1/4-->
+        <div id="right-sidebar" class="sidebar sm:1/2 md:1/3 lg:1/4 font-sm">
+          <div class="right-sidebar-content">
+            <div class="tabs">
+              <ul class="tabs-list">
+                <li class="tab-title active-tab">
+                  <a href="#tab1">تب 1</a>
+                </li>
+
+                <li class="tab-title">
+                  <a href="#tab2">تب 2</a>
+                </li>
+              </ul>
+
+              <div>
+                <button class="openbtn" onclick="openNav()"><</button>
+                <button class="openbtn" onclick="closeNav()">></button>
+              </div>
+            </div>
+            <div id="tab1" class="tab">
+              <div class="tab-content">
+                <div class="tab-top">
+                  <div class="tab-top-left">
+                    <table>
+                      <thead>
+                      <tr class="table-title">
+                        <th class="table-title-item">آیتم ها</th>
+                      </tr>
+                      </thead>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 1</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                      </tr>
+                    </table>
+                    <div class="button-group pointer">
+                      <span class="delete-button">حذف کردن</span>
+                      <span class="select-all-button">انتخاب همه</span>
+                    </div>
+                  </div>
+                  <div class="tab-top-right">
+                    <table>
+                      <thead>
+                      <tr class="table-title">
+                        <th class="table-title-item">رنگ ها</th>
+                      </tr>
+                      </thead>
+
+                      <tr class="table-item-light">
+                        <th class="table-row">
+                          <div id="c-blue" class="colorfull-square"></div>
+                          <p>آبی</p>
+                        </th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th class="table-row">
+                          <div id="c-green" class="colorfull-square"></div>
+                          <p>سبز</p>
+                        </th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th class="table-row">
+                          <div id="c-red" class="colorfull-square"></div>
+                          <p>قرمز</p>
+                        </th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th class="table-row">
+                          <div id="c-yellow" class="colorfull-square"></div>
+                          <p>زرد</p>
+                        </th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th class="table-row">
+                          <div id="c-orange" class="colorfull-square"></div>
+                          <p>نارنجی</p>
+                        </th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th class="table-row">
+                          <div id="c-pink" class="colorfull-square"></div>
+                          <p>صورتی</p>
+                        </th>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tab-bottom">
+                  <div class="tab-bottom-left">
+                    <table>
+                      <thead>
+                      <tr class="table-title">
+                        <th class="table-title-item">مقدار</th>
+                        <th class="table-title-item">نام</th>
+                      </tr>
+                      </thead>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 1</th>
+                        <th>عکس 1</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="tab2" class="tab">
+              <div class="tab-content">
+                <div class="whole-tab">
+                  <div class="whole-tab-one">
+                    <table>
+                      <thead>
+                      <tr class="table-title">
+                        <th class="table-title-item">مقدار</th>
+                        <th class="table-title-item">نام</th>
+                      </tr>
+                      </thead>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 1</th>
+                        <th>عکس 1</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+
+                      <tr class="table-item-dark">
+                        <th>آیتم 2</th>
+                        <th>عکس 2</th>
+                      </tr>
+
+                      <tr class="table-item-light">
+                        <th>آیتم 3</th>
+                        <th>عکس 3</th>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <canvas id="offscreenCanvas" class="hide"></canvas>
+    <img src="#" alt="" id="timg" class="hide">
+    <script>
+      window.$ = window.jQuery = require("jquery");
+      // const {OpenSeadragon} = require("openseadragon/build/openseadragon/openseadragon.min")
+    </script>
+    <script src="lib/osd/openseadragon-bin-3.1.0/openseadragon.min.js"></script>
+    <script src="lib/osd/annotorious/openseadragon-annotorious.min.js"></script>
+    <script src="lib/osd/annotorious-selectorpack-0.5.1/annotorious-selector-pack.js"></script>
+    <script src="lib/osd/OpenSeadragonScalebar-master/openseadragon-scalebar.js"></script>
+    <script src="lib/FileSaver.js-master/dist/FileSaver.min.js"></script>
+    <script src="lib/osd/Openseadragon-screenshot-master/openseadragonScreenshot.min.js"></script>
+    <!--<script src="lib/osd/OpenSeadragonGuides-master/dist/openseadragon-guides.js"></script>-->
+    <script src="lib/osd/openseadragon-imaginghelper-master/src/openseadragon-imaginghelper.js"></script>
+    <script src="lib/osd/OpenSeadragonMagnifier-1.1.0/dist/openseadragonmagnifier.js"></script>
+    <!--<script src="lib/osd/openseadragonselection-master/dist/openseadragonselection.js"></script>-->
+    <!--<script src="lib/osd/OpenSeadragonSmartScrollZoom-master/openseadragon-smartScrollZoom.js"></script>-->
+    <script src="lib/osd/OpenSeadragonDraggableNavigator-1.0.0/openseadragon-draggable-navigator.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/@recogito/annotorious-tilted-box@latest/dist/annotorious-tilted-box.min.js"></script>-->
+    <script src="lib/osd/OpenSeadragonFiltering/openseadragon-filtering.js"></script>
+    <script src="lib/caman.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js" integrity="sha512-JjFeUD2H//RHt+DjVf1BTuy1X5ZPtMl0svQ3RopX641DWoSilJ89LsFGq4Sw/6BSBfULqUW/CfnVopV5CfvRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@recogito/annotorious-selector-pack@latest/dist/annotorious-selector-pack.min.js"></script>
+    <script src="lib/html2canvas/html2canvas.min.js" ></script>
+  <script src="magnify.js"></script>
+
+  <!--loading osd-->
+
+    <script>
+      app_plugins = {
+        annotation: true,
+        magnifier: true,
+      };
+    </script>
+    <script type="text/javascript">
+      // window.$ = window.jQuery = require('jquery');
+      // const {app} = require('electron');
+      // const {Annotorious} = import('lib/osd/annotorious-selectorpack-0.5.1/annotorious-selector-pack')
+      // const {Annotorious} = require("Annotorious");
+      // const {SelectorPack} = require("@recogito/annotorious-selector-pack")
+
+      // const {html2canvas} = require('html2canvas/dist/html2canvas')
+      const {ipcRenderer} = require('electron')
+      const config = require('electron-json-config')
+      var caman = Caman;
+      caman.Store.put = function() {};
+
+      // config.set("server_url", "http://wsi.retko.ir/")
+
+      window.onload = function () {
+        console.log(config.get("itemPath"))
+        let viewerConfig = {
+          id: "viewer",
+          prefixUrl: "lib/osd/openseadragon-bin-3.1.0/images/",
+          // tileSources: "https://rayancad.retko.ir/image-loader.php?addr=" + config.get("itemPath"), //last local working
+          tileSources: "https://s-demo.digipat.ir/image-loader.php?addr=" + config.get("itemPath"), //last local working
+          showNavigator: true,
+          crossOriginPolicy: "Anonymous",
+          loadTilesWithAjax: true,
+          ajaxHeaders: {
+            "Authorization": "Bearer " + localStorage.lab_token
+          }
+        }
+        // let magConfig = {
+        //   id: "mag",
+        //   prefixUrl: "lib/osd/openseadragon-bin-3.1.0/images/",
+        //   tileSources: config.get("itemPath"), //last local working
+        //   showNavigator: false,
+        //   crossOriginPolicy: "Anonymous",
+        //   showNavigationControl: false,
+        //   loadTilesWithAjax: true,
+        //   ajaxHeaders: {
+        //     "Authorization": "Bearer " + localStorage.lab_token
+        //   }
+        // }
+        var viewer = OpenSeadragon(viewerConfig);
+
+        // var mag = OpenSeadragon(magConfig);
+
+        var viewerHandler = function(e) {
+          // console.log(viewer.viewport.getZoom())
+          // console.log(mag.viewport.getZoom())
+          // mag.viewport.zoomTo(viewer.viewport.getZoom() * 4);
+          // console.log(mag.viewport.getZoom())
+          // mag.viewport.panTo(viewer.viewport.getCenter());
+        };
+
+        viewer.addHandler('zoom', viewerHandler);
+
+        var reAuth = function(e) {
+          const url_getToken = config.get("server_url") + "api/lab-token"
+          const form1 = new FormData();
+          form1.append("email",  localStorage.username);
+          form1.append("password", localStorage.password);
+
+          const settings1 = {
+            "url": url_getToken,
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+              "Accept": "application/json",
+              "Authorization": "Bearer " + localStorage.token
+            },
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": form1
+          };
+
+          $.ajax(settings1).done(function (response1) {
+            console.log(response1);
+            let jj = JSON.parse(response1)
+            localStorage.lab_token = jj.data.token
+            config.set("lab_token", jj.data.token)
+            viewerConfig.ajaxHeaders = {
+              "Authorization": "Bearer " + localStorage.lab_token
+            }
+            // magConfig.ajaxHeaders = {
+            //   "Authorization": "Bearer " + localStorage.lab_token
+            // }
+            viewer.open(viewerConfig)
+            // mag.open(magConfig)
+          });
+        }
+
+        viewer.addHandler('open-failed', reAuth);
+        // viewer.addHandler('pan', viewerHandler);
+        const tracker = new OpenSeadragon.MouseTracker({
+          element: viewer.container,
+          moveHandler: event => {
+            const viewportPos = viewer.viewport.viewerElementToViewportCoordinates(event.position);
+            // mag.viewport.panTo(viewportPos, true);
+          }
+        });
+        if (app_plugins["annotation"]) {
+          // Initialize the Annotorious plugin
+          let anno = OpenSeadragon.Annotorious(viewer);
+          // Annotorious.SelectorPack(anno,['point']);
+          // console.log(anno.listDrawingTools());
+          anno.setDrawingTool("rect");
+
+          // Load annotations in W3C WebAnnotation format
+          // anno.loadAnnotations('annotations.w3c.json');
+
+          // Attach handlers to listen to events
+          anno.on("createAnnotation", function (a) {
+            console.log("annotations added", a);
+            let url_addAnnot = "/api/v1/items/{{ $item-> id }}/annotations"
+            let form = new FormData()
+            form.append('data', a)
+            let setting = {
+              'url': url_addAnnot,
+              'method': 'POST',
+              'timeout': 0,
+              'headers': {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer {{$token}}'
+              },
+              'processData': false,
+              'mimeType': 'multipart/form-data',
+              'contentType': false,
+              'data': form
+            }
+            $.ajax(setting).done(function (response){
+              console.log(response)
+            })
+            // let laravelToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            // axios.post(url_addAnnot, form).then((response) => {
+            //     console.log('Stored.', response);
+            // });
+            // Do something
+
+          });
+
+          viewer.scalebar({
+            minWidth: "75px",
+            pixelsPerMeter: 200000,
+            xOffset: 5,
+            yOffset: 10,
+            stayInsideImage: true,
+            color: "rgb(150, 150, 150)",
+            fontColor: "rgb(100, 100, 100)",
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+          });
+
+          viewer.setFilterOptions({
+            filters: {
+              processors: OpenSeadragon.Filters.BRIGHTNESS(20)
+            }
+          });
+
+          viewer.screenshot({
+            showOptions: true, // Default is false
+            keyboardShortcut: "p", // Default is null
+            showScreenshotControl: true, // Default is true
+          });
+
+          viewer.setNavigatorDraggable(true);
+
+          // magnify("viewer", 3);
+          //
+          // viewer.addHandler('canvas-nonprimary-press', function(event) {
+          //     if (event.button === 2) { // Right mouse
+          //         $('#mag').toggleClass('hide');
+          //     }
+          // });
+
+          $("#rectangle").on("click", function () {
+            // console.log('rect')
+            anno.setDrawingTool("rect");
+            $(this).addClass("active-tool");
+            $("#polygon").removeClass("active-tool");
+            // $("#point").removeClass("active-tool");
+          });
+          $("#polygon").on("click", function () {
+            // console.log('poly')
+            anno.setDrawingTool("polygon");
+            $(this).addClass("active-tool");
+            $("#rectangle").removeClass("active-tool");
+            // $("#point").removeClass("active-tool");
+          });
+          $("#snapshot").on("click", function () {
+            // var c = $("#viewer").find("canvas")
+            // console.log(c)
+            // var t = c[0].getContext('2d');
+            // console.log(t)
+            // window.open('', $("#viewer").find("canvas").toDataURL());
+            html2canvas($("#viewer")[0]).then((canvas) => {
+              theCanvas = canvas;
+
+
+              canvas.toBlob(function (blob) {
+                saveAs(blob, "Dashboard.png");
+              });
+            });
+          });
+          // $("#point").on("click", function () {
+          //   // console.log('point')
+          //   anno.setDrawingTool("point");
+          //   $(this).addClass("active-tool");
+          //   $("#rectangle").removeClass("active-tool");
+          //   $("#polygon").removeClass("active-tool");
+          // });
+          $("#fullscreen").on("click", function () {
+            viewer.setFullScreen(true);
+          });
+
+          $("#imageAdjust").on("click", function () {
+            ipcRenderer.send("image-adjust")
+          });
+
+          ipcRenderer.on('doFilter', (event, args) => {
+            console.log(args)
+            viewer.setFilterOptions({
+              filters: [{
+                processors: function (context, callback) {
+                  caman(context.canvas, function () {
+                    this.brightness(args['brightness']);
+                    // this.contrast(args['contrast'])
+                    this.colorize(args['red'], args['green'], args['blue'], 20);
+                    this.gamma(args['gamma']);
+                    this.render(callback);
+                  });
+                  //   [
+                  //   OpenSeadragon.Filters.BRIGHTNESS(args['brightness']),
+                  //   OpenSeadragon.Filters.CONTRAST(args['contrast']),
+                  //   OpenSeadragon.Filters.channels(args['red'], args['green'], args['blue']),
+                  //   OpenSeadragon.Filters.GAMMA(args['gamma']),
+                  // ]
+                }
+              }]
+            })
+          })
+
+          $("#zoomin").on("click", function () {
+            var viewport = viewer.viewport;
+            viewport.zoomBy(1.1);
+            viewport.applyConstraints();
+          });
+
+          $("#zoomout").on("click", function () {
+            var viewport = viewer.viewport;
+            viewport.zoomBy(0.9);
+            viewport.applyConstraints();
+          });
+
+          $("#zoomreset").on("click", function () {
+            viewer.viewport.goHome();
+          });
+          $('.logout').click(function (){
+            ipcRenderer.send('logout')
+          });
+        }
+      };
+
+      function getWithUnit(value, unitSuffix) {
+        if (value < 0.000001) {
+          return value * 1000000000 + " n" + unitSuffix;
+        }
+        if (value < 0.001) {
+          return value * 1000000 + " μ" + unitSuffix;
+        }
+        if (value < 1) {
+          return value * 1000 + " m" + unitSuffix;
+        }
+        if (value >= 1000) {
+          return value / 1000 + " k" + unitSuffix;
+        }
+        return value + " " + unitSuffix;
+      }
+
+      function isDefined(variable) {
+        return typeof (variable) !== "undefined";
+      }
+
+      function distance(a, b) {
+        var c = Math.sqrt(
+            Math.pow(b.orig.x - b.dest.x, 2) + Math.pow(b.orig.y - b.dest.y, 2)
+          ),
+          d = a.viewer.selectedLayer.scalebar.pixelsPerMeter,
+          e = c / d;
+        return getWithUnit(e, 'm')
+        // return e > 1
+        //   ? ((b.distance = Math.round(e) + " m"), b.distance)
+        //   : ((e *= 1e3),
+        //     e > 1
+        //       ? ((b.distance = Math.round(e) + " mm"), b.distance)
+        //       : ((e *= 1e3),
+        //         e > 1
+        //           ? ((b.distance = Math.round(e) + " μm"), b.distance)
+        //           : ((e *= 1e3),
+        //             (b.distance = Math.round(e) + " nm"),
+        //             b.distance)));
+      }
+
+    </script>
+
+
+    <script src="utils.js"></script>
+
+    <!--right sidebar open close-->
+    <script>
+      function openNav() {
+        document.getElementById("right-sidebar").style.width = "300px";
+        document.getElementById("main").style.marginRight = "300px";
+      }
+
+      function closeNav() {
+        document.getElementById("right-sidebar").style.width = "0";
+        document.getElementById("main").style.marginRight = "0";
+      }
+    </script>
+<!--    <script src='./watcher.js'></script>-->
+  </body>
+</html>
