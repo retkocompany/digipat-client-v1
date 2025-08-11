@@ -133,7 +133,7 @@
   window.onload = function () {
 
     ipcRenderer.send('logout');
-    // ipcRenderer.send('checkCam');
+    ipcRenderer.send('checkCam');
     ipcRenderer.on('camera', (event, data) => {
       console.log(data)
       cameraId = data;

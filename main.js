@@ -50,6 +50,7 @@ function createLoginWin(callback) {
     })).catch((error) => { if (error.code === 'ERR_ABORTED') return; throw error; }).then(r => console.log('login'))
 
     loginWin.on('closed', ()=>{
+        loginWin = null
         app.quit()
     })
     // loginWin.once('ready-to-show', () => {
@@ -83,8 +84,8 @@ function createMainWin(callback) {
     })).catch((error) => { if (error.code === 'ERR_ABORTED') return; throw error; }).then(r => console.log('main'))
 
     mainWin.on('closed', ()=>{
-        // app.quit()
         mainWin = null
+        app.quit()
     })
 
     mainWin.webContents.on('did-finish-load', function () {
@@ -120,6 +121,7 @@ function createViewerWin(callback) {
 
     viewerWin.on('closed', ()=>{
         viewerWin = null
+        // app.quit()
     })
 }
 
@@ -183,6 +185,47 @@ app.on('ready', ()=> {
     //     mainWin.hide()
     //     viewer.hide()
     // })
+    const { initDB } = require('./db');
+    const db = initDB();
+
+    ipcMain.on('save-offline-data', (event, { endpoint, payload }) => {
+        db.run(`INSERT INTO queue (endpoint, payload) VALUES (?, ?)`,
+            [endpoint, JSON.stringify(payload)], err => {
+                if (err) console.error(err);
+            });
+    });
+
+
+    function sendQueuedData() {
+        db.all(`SELECT * FROM queue ORDER BY created_at ASC`, (err, rows) => {
+            if (err) return console.error(err);
+
+            rows.forEach(row => {
+                fetch(row.endpoint, {
+                    method: 'POST',
+                    body: row.payload,
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                    .then(res => {
+                        if (res.ok) {
+                            db.run(`DELETE FROM queue WHERE id = ?`, [row.id]);
+                            console.log(`Sent queued item ${row.id}`);
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Failed to send queued item', row.id, err);
+                    });
+            });
+        });
+    }
+
+    ipcMain.on('network-status-changed', (event, isOnline) => {
+        console.log(`Network status: ${isOnline ? 'Online' : 'Offline'}`);
+        if (isOnline) {
+            sendQueuedData();
+        }
+    });
+
     ipcMain.on('logged-in', (event, arg) => {
         // loginWin.close()
         // loginWin = null

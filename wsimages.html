@@ -500,6 +500,39 @@
         function isOnline() {
             return navigator.onLine;
         }
+
+        window.addEventListener('online', () => {
+            console.log("Online");
+            const { ipcRenderer } = require('electron');
+            ipcRenderer.send('network-status-changed', true);
+        });
+
+        window.addEventListener('offline', () => {
+            console.log("Offline");
+            const { ipcRenderer } = require('electron');
+            ipcRenderer.send('network-status-changed', false);
+        });
+
+        async function sendApiData(endpoint, payload) {
+            if (!navigator.onLine) {
+                ipcRenderer.send('save-offline-data', { endpoint, payload });
+                console.log('Saved data locally (offline)');
+                return;
+            }
+
+            try {
+                let res = await fetch(endpoint, {
+                    method: 'POST',
+                    body: JSON.stringify(payload),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                if (!res.ok) throw new Error('API error');
+            } catch (err) {
+                ipcRenderer.send('save-offline-data', { endpoint, payload });
+                console.log('Failed API call, saved locally');
+            }
+        }
+
         window.onload = function () {
             $('.user-name').text(localStorage.user_name)
             let settings = {
